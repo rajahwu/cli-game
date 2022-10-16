@@ -74,3 +74,13 @@ async function handleAnswer(isCorrect) {
 // await welcome();
 // await askName();
 await question1();
+
+async function winner() {
+    console.clear();
+    const msg = `Congrats, ${playerName} !\n $1 , 0 0 0 , 0 0 0`;
+
+    figlet(msg, (err, data) => {
+        console.log(gradient.pastel.multiline(data))
+    })
+}
+await winner()
