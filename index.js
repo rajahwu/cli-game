@@ -82,5 +82,5 @@ async function winner() {
     figlet(msg, (err, data) => {
         console.log(gradient.pastel.multiline(data))
     })
-}
+}   
 await winner()
