@@ -44,3 +44,33 @@ async function askName() {
 
 // await welcome();
 await askName();
+
+async function question1() {
+    const answers = await inquirer.prompt({
+        name: 'question_1',
+        type: 'list',
+        message: 'JavaScript was created in 10 days the releasled on\n',
+        choices: [
+            'May 23rd, 1995',
+            'Nov 23th, 1995',
+            'Dec 4th, 1995',
+            'Dec 17th, 1996'
+        ],
+    });
+
+    return handleAnswer(answers.question_1 == 'Dec 4th, 1995')
+}
+
+async function handleAnswer(isCorrect) {
+    const spinner = createSpinner('Checking answer...').start();
+    await sleep();
+    if (isCorrect) {
+        spinner.success({ text: `Nice work ${playerName}.` });
+    } else {
+        spinner.error({text: `💀💀💀 Game over, you lose ${playerName}`});
+        process.exit(1)
+    }
+}
+// await welcome();
+// await askName();
+await question1();
